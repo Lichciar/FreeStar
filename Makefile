@@ -1,19 +1,26 @@
 # !!! Обязательно использовать табуляцию.
 
+# Переменные:
+# -----------
+CXX = g++
+CXXFLAG = -Wall
+VERSION = v_0.1.2
+TARGET = FreeSpace_$(VERSION)
+SOURCE = Source/main.cpp Source/SpaceSector.cpp
+OBJECTS = $(SOURCE:.cpp=.o)
+
 # make не будет искать файлы с перечисленными ниже именами.
 .PHONY: all, assemble, run, clean
 
 # Команда на полную сборку проекта.
-all: assemble
+all: $(TARGET)
 
-# Сборка из исходников.
-assemble: Source/main.cpp
-	g++ -Wall Source/main.cpp -O3 -o ./FreeStar	
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET)
 
-# Сборка и сбор информации в файл. ВРЕМЕННО.
-run: assemble
-	./FreeStar
+%.o: %.cpp
+	$(CXX) $(CXXFLAG) -c $< -o $@
 
 # Удаление ненужных файла.
 clean:
-	rm -rf ./FreeStar
+	rm -f $(OBJECTS) $(TARGET)

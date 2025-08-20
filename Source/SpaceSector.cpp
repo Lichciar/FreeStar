@@ -1,4 +1,5 @@
 #include <iostream>
+#include "settings.h"		// Добавление моих макросов.
 #include "SpaceSector.h"
 
 /* Реализация класса SpaceSector:*/
@@ -8,9 +9,9 @@ SpaceSector::SpaceSector(int id)
 {
 	this->idSector = id; // Прислаиваем номер сектора.
 	// Очищаем карту сектора.
-	for (int loop = 0; loop < (10000); loop++)
+	for (int loop = 0; loop < (LENGTH_SECTOR * WIDTH_SECTOR); loop++)
 	{
-		this->mapSector[loop] = (10000) - loop; 
+		this->mapSector[loop] = (LENGTH_SECTOR * WIDTH_SECTOR) - loop + 1000; 
 	};
 };
 
@@ -27,6 +28,6 @@ int SpaceSector::get_mapSector(int x, int y) {
 
 /* Преобразование 2у мерных координат в индект массива.*/
 int SpaceSector::get_arrayIndex(int x, int y) {
-	int index = x + y * 100;
+	int index = x + y * WIDTH_SECTOR;
 	return index;
 };

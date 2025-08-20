@@ -1,12 +1,15 @@
 #pragma once
-//#ifndef _SPACESECTOR_H_
-//#define _SPACESECTOR_H_
+
+#ifndef _SPACESECTOR_H_
+#define _SPACESECTOR_H_
+
+#include "settings.h"	// Добавление макросов.
 
 class SpaceSector
 {
 private:
-	int idSector;		// ID сектора.
-	int mapSector[10000];		// Карта сектора.
+	int idSector;									// ID сектора.
+	int mapSector[LENGTH_SECTOR * WIDTH_SECTOR];	// Карта сектора.
 public:
 	SpaceSector(int); 				// Конструктор класса.
 	int get_Id();					// Получить ID сектора.
@@ -14,4 +17,4 @@ public:
 	int get_arrayIndex(int, int);	// Преобразование координат [x, y] сектора в индект массива.
 };
 
-//#endif // _SPACESECTOR_H_
+#endif // _SPACESECTOR_H_

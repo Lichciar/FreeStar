@@ -7,12 +7,12 @@
 all: assemble
 
 # Сборка из исходников.
-assemble: Source/main.c
-	gcc -Wall Source/main.c -O3 -o ./FreeStar	
+assemble: Source/main.cpp
+	g++ -Wall Source/main.cpp -O3 -o ./FreeStar	
 
 # Сборка и сбор информации в файл. ВРЕМЕННО.
 run: assemble
-	./FreeStar >> ./result.txt
+	./FreeStar
 
 # Удаление ненужных файла.
 clean:

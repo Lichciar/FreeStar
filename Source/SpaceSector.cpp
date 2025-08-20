@@ -8,7 +8,7 @@ SpaceSector::SpaceSector(int id)
 {
 	this->idSector = id; // Прислаиваем номер сектора.
 	// Очищаем карту сектора.
-	for (int loop = 0; loop < (10001); loop++)
+	for (int loop = 0; loop < (10000); loop++)
 	{
 		this->mapSector[loop] = (10000) - loop; 
 	};
